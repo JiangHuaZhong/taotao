@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+
+   http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!--组件扫描-->
+    <context:component-scan base-package="com.taotao.service"></context:component-scan>
+    <!--应用名-->
+    <dubbo:application name="taotao_manager"></dubbo:application>
+    <!--指定连接到的注册中心的地址和端口-->
+    <dubbo:registry protocol="zookeeper" address="192.168.25.133" port="2181"></dubbo:registry>
+    <!--暴露服务的端口 默认端口20880-->
+    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+    <!--timeout:类型是毫秒-->
+    <dubbo:service interface="com.taotao.service.TestService" ref="testServiceImpl" timeout="10000000"></dubbo:service>
+    <!--<dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl" timeout="10000000"></dubbo:service>-->
+
+</beans>
