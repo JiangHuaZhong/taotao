@@ -16,6 +16,6 @@
     <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
     <!--timeout:类型是毫秒-->
     <dubbo:service interface="com.taotao.service.TestService" ref="testServiceImpl" timeout="10000000"></dubbo:service>
-    <!--<dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl" timeout="10000000"></dubbo:service>-->
+    <dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl" timeout="10000000"></dubbo:service>
 
 </beans>
